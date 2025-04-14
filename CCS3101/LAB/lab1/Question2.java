@@ -59,6 +59,6 @@ public class Question2 {
         System.out.println("Stock Name: " + stock.getName());
         System.out.println("Previous Closing Price: $" + stock.getPreviousClosingPrice());
         System.out.println("Current Price: $" + stock.getCurrentPrice());
-        System.out.println("Price Change Percentage: " + stock.getChangePercent() + "%");
+        System.out.printf("Price Change Percentage: %.2f%%\n"  , stock.getChangePercent() );
     }
 }
