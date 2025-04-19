@@ -3,6 +3,7 @@ class Student {
     private Course[] courseList;
     private int courseCount;
 
+    // Constructor
     public Student(String name) {
         this.name = name;
         this.courseList = new Course[10]; 
@@ -13,13 +14,16 @@ class Student {
         return name;
     }
 
+    // add course to the student
     public void addCourse(Course c) {
         if (!isCourseAdded(c) && courseCount < 10) {
-            courseList[courseCount++] = c;
+            courseList[courseCount] = c;
+            courseCount++;
             c.addStudent(this); // keeping the relationship consistent
         }
     }
 
+    // check if course is already added
     private boolean isCourseAdded(Course c) {
         for (int i = 0; i < courseCount; i++) {
             if (courseList[i] == c) {
@@ -29,11 +33,13 @@ class Student {
         return false;
     }
 
+    // print the courses the student is taking
     public void printCourses() {
         System.out.println(name + " is taking:");
         for (int i = 0; i < courseCount; i++) {
             System.out.println("- " + courseList[i].getName());
         }
+        System.out.println();
     }
 }
 
@@ -52,13 +58,16 @@ class Course {
         return name;
     }
 
+    // add student to the course
     public void addStudent(Student s) {
         if (!isStudentAdded(s) && studentCount < 10) {
-            classList[studentCount++] = s;
+            classList[studentCount] = s;
+            studentCount++;
             s.addCourse(this); // keeping the relationship consistent
         }
     }
 
+    // check if student is already added
     private boolean isStudentAdded(Student s) {
         for (int i = 0; i < studentCount; i++) {
             if (classList[i] == s) {
@@ -73,6 +82,7 @@ class Course {
         for (int i = 0; i < studentCount; i++) {
             System.out.println("- " + classList[i].getName());
         }
+        System.out.println();
     }
 }
 
@@ -85,11 +95,13 @@ public class Test {
         //create courses
         Course dataStructures = new Course("Data Structures");
         Course databaseSystems = new Course("Database Systems");
+        Course datavisulization = new Course("datavisulization");
 
         // add courses to students
         dataStructures.addStudent(peter);
         dataStructures.addStudent(kim);
         databaseSystems.addStudent(kim);
+        datavisulization.addStudent(peter);
 
         // print students and courses
         peter.printCourses();
@@ -98,5 +110,6 @@ public class Test {
         // print students in each course
         dataStructures.printStudents();
         databaseSystems.printStudents();
+        datavisulization.printStudents();
     }
 }
