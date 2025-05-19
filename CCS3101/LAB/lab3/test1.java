@@ -1,23 +1,28 @@
+// A class to represent a simple date (used for hiring date)
 class MyDate {
     private int day, month, year;
 
+    // Constructor to initialize day, month, and year
     public MyDate(int day, int month, int year) {
         this.day = day;
         this.month = month;
         this.year = year;
     }
 
+    // Returns the date in "day/month/year" format
     public String toString() {
         return day + "/" + month + "/" + year;
     }
 }
 
+// Base class representing a generic person
 class Person {
     protected String name;
     protected String address;
     protected String phoneNumber;
     protected String email;
 
+    // Constructor for Person class
     public Person(String name, String address, String phoneNumber, String email) {
         this.name = name;
         this.address = address;
@@ -25,34 +30,52 @@ class Person {
         this.email = email;
     }
 
+    // Display all personal information
+    @Override
     public String toString() {
-        return "Person: " + name;
+        return "Class: Person\n" +
+               "Name: " + name + "\n" +
+               "Address: " + address + "\n" +
+               "Phone: " + phoneNumber + "\n" +
+               "Email: " + email;
     }
 }
 
+// Subclass of Person representing a student
 class Student extends Person {
-    public static  String FRESHMAN = "Freshman";
-    public static  String SOPHOMORE = "Sophomore";
-    public static  String JUNIOR = "Junior";
-    public static  String SENIOR = "Senior";
+    // Constant values for student status
+    public static final String FRESHMAN = "Freshman";
+    public static final String SOPHOMORE = "Sophomore";
+    public static final String JUNIOR = "Junior";
+    public static final String SENIOR = "Senior";
 
-    private String status;
+    private String status; // e.g., Freshman, Sophomore, etc.
 
+    // Constructor for Student
     public Student(String name, String address, String phoneNumber, String email, String status) {
-        super(name, address, phoneNumber, email);// Constructor
+        super(name, address, phoneNumber, email);
         this.status = status;
     }
 
+    // Display all student details
+    @Override
     public String toString() {
-        return "Student: " + name;
+        return "Class: Student\n" +
+               "Name: " + name + "\n" +
+               "Address: " + address + "\n" +
+               "Phone: " + phoneNumber + "\n" +
+               "Email: " + email + "\n" +
+               "Status: " + status;
     }
 }
 
+// Subclass of Person representing an employee
 class Employee extends Person {
     protected String office;
     protected double salary;
-    protected MyDate dateHired;
+    protected MyDate dateHired; // Custom MyDate class
 
+    // Constructor for Employee
     public Employee(String name, String address, String phoneNumber, String email,
                     String office, double salary, MyDate dateHired) {
         super(name, address, phoneNumber, email);
@@ -61,15 +84,25 @@ class Employee extends Person {
         this.dateHired = dateHired;
     }
 
+    // Display all employee details
     public String toString() {
-        return "Employee: " + name;
+        return "Class: Employee\n" +
+               "Name: " + name + "\n" +
+               "Address: " + address + "\n" +
+               "Phone: " + phoneNumber + "\n" +
+               "Email: " + email + "\n" +
+               "Office: " + office + "\n" +
+               "Salary: " + salary + "\n" +
+               "Date Hired: " + dateHired;
     }
 }
 
+// Subclass of Employee representing a faculty member
 class Faculty extends Employee {
     private String officeHours;
     private String rank;
 
+    // Constructor for Faculty
     public Faculty(String name, String address, String phoneNumber, String email,
                    String office, double salary, MyDate dateHired,
                    String officeHours, String rank) {
@@ -78,39 +111,62 @@ class Faculty extends Employee {
         this.rank = rank;
     }
 
+    // Display all faculty details
     public String toString() {
-        return "Faculty: " + name;
+        return "Class: Faculty\n" +
+               "Name: " + name + "\n" +
+               "Address: " + address + "\n" +
+               "Phone: " + phoneNumber + "\n" +
+               "Email: " + email + "\n" +
+               "Office: " + office + "\n" +
+               "Salary: " + salary + "\n" +
+               "Date Hired: " + dateHired + "\n" +
+               "Office Hours: " + officeHours + "\n" +
+               "Rank: " + rank;
     }
 }
 
+// Subclass of Employee representing a staff member
 class Staff extends Employee {
     private String title;
 
+    // Constructor for Staff
     public Staff(String name, String address, String phoneNumber, String email,
                  String office, double salary, MyDate dateHired, String title) {
         super(name, address, phoneNumber, email, office, salary, dateHired);
         this.title = title;
     }
 
+    // Display all staff details
     public String toString() {
-        return "Staff: " + name;
+        return "Class: Staff\n" +
+               "Name: " + name + "\n" +
+               "Address: " + address + "\n" +
+               "Phone: " + phoneNumber + "\n" +
+               "Email: " + email + "\n" +
+               "Office: " + office + "\n" +
+               "Salary: " + salary + "\n" +
+               "Date Hired: " + dateHired + "\n" +
+               "Title: " + title;
     }
 }
 
+// Main test class to create and print all object types
 public class test1 {
     public static void main(String[] args) {
-        Person p = new Person("Alice", "123 Main St", "60-3456789", "alice@email.com");
-        Student s = new Student("Bob", "456 High St", "60-9876543", "bob@email.com", Student.FRESHMAN);
+        // Create sample data
+        Person p = new Person("AA", "123A", "60-3456789", "a@email.com");
+        Student s = new Student("BB", "456B", "60-9876543", "b@email.com", Student.FRESHMAN);
         MyDate d = new MyDate(11, 4, 2025);
-        Employee e = new Employee("Carol", "789 College Rd", "60-1122334", "carol@email.com", "A101", 3000, d);
-        Faculty f = new Faculty("David", "321 Uni Ave", "60-9988776", "david@email.com", "B202", 5000, d, "10-12am", "Professor");
-        Staff st = new Staff("Eve", "654 Staff Rd", "60-5566778", "eve@email.com", "C303", 3500, d, "Administrator");
+        Employee e = new Employee("CC", "789ee", "60-1122334", "c@email.com", "A1", 3000, d);
+        Faculty f = new Faculty("DD", "321dd", "60-9988776", "d@email.com", "B2", 5000, d, "10-12am", "Professor");
+        Staff st = new Staff("EE", "123ee", "60-5566778", "e@email.com", "C3", 3500, d, "Administrator");
 
-        System.out.println(p);
-        System.out.println(s);
-        System.out.println(e);
-        System.out.println(f);
-        System.out.println(st);
+        // Print details of each object using their toString()
+        System.out.println(p + "\n");
+        System.out.println(s + "\n");
+        System.out.println(e + "\n");
+        System.out.println(f + "\n");
+        System.out.println(st + "\n");
     }
 }
- 
