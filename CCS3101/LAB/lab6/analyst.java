@@ -29,13 +29,13 @@ public class analyst {
         }
         input.close();
 
-        // 总和和平均
+        // calculate total and average for each rank
         double totalSalary = assistantTotal + associateTotal + fullTotal;
         int totalCount = assistantCount + associateCount + fullCount;
 
-        System.out.printf("Assistant - Total: %.2f, Average: %.2f\n", assistantTotal, assistantTotal / assistantCount);
-        System.out.printf("Associate - Total: %.2f, Average: %.2f\n", associateTotal, associateTotal / associateCount);
-        System.out.printf("Full - Total: %.2f, Average: %.2f\n", fullTotal, fullTotal / fullCount);
+        System.out.printf("Assistant   - Total: %.2f, Average: %.2f\n", assistantTotal, assistantTotal / assistantCount);
+        System.out.printf("Associate   - Total: %.2f, Average: %.2f\n", associateTotal, associateTotal / associateCount);
+        System.out.printf("Full        - Total: %.2f, Average: %.2f\n", fullTotal, fullTotal / fullCount);
         System.out.printf("All Faculty - Total: %.2f, Average: %.2f\n", totalSalary, totalSalary / totalCount);
     }
 }

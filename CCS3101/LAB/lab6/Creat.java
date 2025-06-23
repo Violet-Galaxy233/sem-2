@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class Creat {
     public static void main(String[] args) throws FileNotFoundException {
-        // 创建输出文件 Salary.txt
+        // create a file named Salary.txt
         PrintWriter writer = new PrintWriter("Salary.txt");
         Random rand = new Random();
 
@@ -12,11 +12,11 @@ public class Creat {
             String firstName = "FirstName" + i;
             String lastName = "LastName" + i;
 
-            // 随机选职位
+            // randomly generate rank
             String[] ranks = {"assistant", "associate", "full"};
             String rank = ranks[rand.nextInt(ranks.length)];
 
-            // 根据职位生成对应工资
+            // randomly generate salary based on rank
             double salary = 0.0;
             if (rank.equals("assistant")) {
                 salary = 50000 + (80000 - 50000) * rand.nextDouble();
@@ -27,7 +27,7 @@ public class Creat {
             }
 
             // keep 2 decimal places
-            writer.printf("%s %s %s %.2f\n", firstName, lastName, rank, salary);
+            writer.printf("%-12s %-12s %-12s %.2f\n", firstName, lastName, rank, salary);
         }
 
         writer.close();

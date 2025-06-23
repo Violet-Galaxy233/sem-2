@@ -1,0 +1,15 @@
+Alice 
+A12345
+Total Score: 89.50
+Grade: A
+
+Bob 
+B67890
+Total Score: 73.50
+Grade: B
+
+Cathy
+C43210
+Total Score: 100.00
+Grade: A
+
